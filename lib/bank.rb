@@ -8,4 +8,6 @@ class Bank
   def new_account(customer)
     @accounts.push(@account.new(customer))
   end
+
+  
 end
