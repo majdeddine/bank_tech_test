@@ -21,4 +21,15 @@ describe Account do
       expect(account.balance).to eq(5)
     end
   end
+
+  describe "withdraw" do
+    it "receive amount as argument" do
+      expect(account).to respond_to(:withdraw).with(1).argument
+    end
+    it "substract an amout of money from the balance" do
+      account.deposit(5)
+      account.withdraw(5)
+      expect(account.balance).to eq(0)
+    end
+  end
 end

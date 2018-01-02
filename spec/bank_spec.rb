@@ -22,4 +22,10 @@ describe Bank do
       expect(bank).to respond_to(:deposit).with(2).argument
     end
   end
+
+  describe "withdraw" do
+    it "receive amount and customer as arguments" do
+      expect(bank).to respond_to(:withdraw).with(2).argument
+    end
+  end
 end

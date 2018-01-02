@@ -14,6 +14,11 @@ class Bank
     account.deposit(amount)
   end
 
+  def withdraw(amount, customer)
+    account = find_account(customer)
+    account.withdraw(amount)
+  end
+
   private
 
   def find_account(customer)
