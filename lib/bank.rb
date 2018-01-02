@@ -1,7 +1,3 @@
-require './lib/account'
-require './lib/customer'
-require './lib/statement'
-require './lib/transaction'
 class Bank
   attr_reader :accounts
   def initialize(account = Account, statement = Statement.new)
