@@ -13,15 +13,19 @@ class Bank
   def deposit(amount, customer, password)
     account = find_account(customer,password)
     if account
-    account.deposit(amount)
+      account.deposit(amount)
     else
       match_error
     end
   end
 
   def withdraw(amount, customer,password)
-    account = find_account(customer)
-    account.withdraw(amount)
+    account = find_account(customer,password)
+    if account
+      account.withdraw(amount)
+    else
+      match_error
+    end
   end
 
   private
