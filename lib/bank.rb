@@ -9,5 +9,15 @@ class Bank
     @accounts.push(@account.new(customer))
   end
 
-  
+  def deposit(amount, customer)
+    account = find_account(customer)
+    account.deposit(amount)
+  end
+
+  private
+
+  def find_account(customer)
+    @accounts.select{|c| c.owner == customer }[0]
+  end
+
 end

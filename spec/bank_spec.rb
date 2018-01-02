@@ -15,6 +15,11 @@ describe Bank do
       bank.new_account(customer)
       expect(bank.accounts.last.owner).to eq(customer)
     end
+  end
 
+  describe "deposit" do
+    it "receive amount and customer as arguments" do
+      expect(bank).to respond_to(:deposit).with(2).argument
+    end
   end
 end
