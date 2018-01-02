@@ -19,6 +19,10 @@ So that i know that my money is safe
 I need to have a password in order to make transaction
 
 As a customer
+So that I can make a transaction
+I need to provide the right password
+
+As a customer
 So that I keep track of my spending
 I want to see my bank account statement
 
