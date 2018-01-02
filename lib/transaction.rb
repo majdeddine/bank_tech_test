@@ -5,7 +5,7 @@ class Transaction
     @type = type
     @amount = amount
     @balance = balance
-    @date = date.now
+    @date = date.now.strftime("%D")
   end
 
 end

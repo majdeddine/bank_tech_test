@@ -1,8 +1,13 @@
+require './lib/account'
+require './lib/customer'
+require './lib/statement'
+require './lib/transaction'
 class Bank
   attr_reader :accounts
-  def initialize(account = Account)
+  def initialize(account = Account, statement = Statement.new)
     @accounts = []
     @account = account
+    @statement = statement
   end
 
   def new_account(customer,password)
@@ -28,10 +33,10 @@ class Bank
     end
   end
 
-  def statment(customer,password)
+  def account_statment(customer,password)
     account = find_account(customer,password)
     if account
-  
+      @statement.print(account.transactions)
     else
       match_error
     end
