@@ -15,6 +15,10 @@ describe Account do
     expect(account.balance).to eq(0)
   end
 
+  it "have transactions" do
+    expect(account.transactions).to eq([])
+  end
+
   describe "deposit" do
 
     it "receive amount as argument" do
