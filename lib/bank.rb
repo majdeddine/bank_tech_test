@@ -28,6 +28,14 @@ class Bank
     end
   end
 
+  def statment(customer,password)
+    account = find_account(customer,password)
+    if account
+  
+    else
+      match_error
+    end
+  end
   private
 
   def create_account(customer, password)

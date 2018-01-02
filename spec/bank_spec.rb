@@ -36,4 +36,13 @@ describe Bank do
       expect{bank.withdraw(10,'jj',"0001")}.to raise_error("Wrong name or password")
     end
   end
+  describe "statment" do
+    it "receive customer and password as argument" do
+      expect(bank).to respond_to(:statment).with(2).argument
+    end
+
+    it "throw error if the customer provide a wrong password" do
+      expect{bank.statment('jj',"0001")}.to raise_error("Wrong name or password")
+    end
+  end
 end
