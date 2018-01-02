@@ -1,11 +1,16 @@
 describe Account do
   let(:customer){double("customer", name: "jj")}
-  let(:account){Account.new(customer)}
+  let(:account){Account.new(customer, '0000')}
 
 
   it "receive customer instance when instantiated" do
     expect(account.owner.name).to eq('jj')
   end
+
+  it "receive a password when instantiated" do
+    expect(account.password).to eq('0000')
+  end
+
   it "have a balance of 0" do
     expect(account.balance).to eq(0)
   end

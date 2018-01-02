@@ -5,25 +5,25 @@ class Bank
     @account = account
   end
 
-  def new_account(customer)
-    account = create_account(customer)
+  def new_account(customer,password)
+    account = create_account(customer,password)
     @accounts.push(account)
   end
 
-  def deposit(amount, customer)
+  def deposit(amount, customer, password)
     account = find_account(customer)
     account.deposit(amount)
   end
 
-  def withdraw(amount, customer)
+  def withdraw(amount, customer,password)
     account = find_account(customer)
     account.withdraw(amount)
   end
 
   private
 
-  def create_account(customer)
-    @account.new(customer)
+  def create_account(customer, password)
+    @account.new(customer, password)
   end
 
   def find_account(customer)

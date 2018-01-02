@@ -7,25 +7,25 @@ describe Bank do
   end
   describe "new account" do
 
-    it"receive customer as argument" do
-      expect(bank).to respond_to(:new_account).with(1).argument
+    it"receive customer and password as arguments" do
+      expect(bank).to respond_to(:new_account).with(2).argument
     end
 
     it"create a new account and add it to the accounts list"do
-      bank.new_account(customer)
+      bank.new_account(customer,0000)
       expect(bank.accounts.last.owner).to eq(customer)
     end
   end
 
   describe "deposit" do
-    it "receive amount and customer as arguments" do
-      expect(bank).to respond_to(:deposit).with(2).argument
+    it "receive amount, customer and password as arguments" do
+      expect(bank).to respond_to(:deposit).with(3).argument
     end
   end
 
   describe "withdraw" do
-    it "receive amount and customer as arguments" do
-      expect(bank).to respond_to(:withdraw).with(2).argument
+    it "receive amount, customer and password as arguments" do
+      expect(bank).to respond_to(:withdraw).with(3).argument
     end
   end
 end
