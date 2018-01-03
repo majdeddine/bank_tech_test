@@ -1,12 +1,14 @@
 describe Bank do
   let(:customer) { double('customer', name: 'jj') }
-  # let(:account) { double('account', :new) }
+  let(:account) { double('account', owner: '', password: '') }
+  let(:Account){ double('Account', new: account) }
   let(:statement) { double('statement') }
   let(:bank) { Bank.new(Account, statement) }
 
   before(:each) do
-    bank.new_account(customer, '0000')
     allow(statement).to receive(:print)
+    # allow(account).to receive(:new)
+    bank.new_account(customer, '0000')
   end
 
   it 'have a list of accounts' do
@@ -19,7 +21,8 @@ describe Bank do
     end
 
     it 'create a new account and add it to the accounts list' do
-      expect(bank.accounts.last.owner).to eq(customer)
+      Account.should_receive(:new).once
+      bank.new_account(customer, '0000')
     end
   end
 
@@ -31,6 +34,7 @@ describe Bank do
     it 'throw error if the customer provide a wrong password' do
       expect { bank.deposit(10, customer, '0001') }.to raise_error('Wrong name or password')
     end
+
   end
 
   describe 'withdraw' do
@@ -42,6 +46,7 @@ describe Bank do
       expect { bank.withdraw(10, customer, '0001') }.to raise_error('Wrong name or password')
     end
   end
+
   describe 'account_statment' do
     it 'receive customer and password as argument' do
       expect(bank).to respond_to(:account_statment).with(2).argument
