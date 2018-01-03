@@ -10,23 +10,23 @@ class Account
 
   def deposit(amount)
     @balance += amount
-    add_transaction('debit',amount,@balance)
+    add_transaction('debit', amount, @balance)
   end
 
   def withdraw(amount)
     @balance -= amount
-    add_transaction('credit',amount,@balance)
+    add_transaction('credit', amount, @balance)
   end
 
   private
 
-  def add_transaction(type,amount,balance)
-    transaction = create_transaction(type,amount,balance)
+  def add_transaction(type, amount, balance)
+    transaction = create_transaction(type, amount, balance)
     @transactions.push(transaction)
   end
 
-  def create_transaction(type,amount,balance)
-    @transaction.new(type,amount,balance)
+  def create_transaction(type, amount, balance)
+    @transaction.new(type, amount, balance)
   end
 
 end

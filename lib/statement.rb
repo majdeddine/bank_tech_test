@@ -6,7 +6,7 @@ class Statement
 
   def print(transactions)
     reset_statment_log
-    transactions.reverse.each{|transaction| print_transaction(transaction)}
+    transactions.reverse.each { |transaction| print_transaction(transaction) }
     puts @statment_log.join("\n")
   end
 
@@ -19,6 +19,7 @@ class Statement
   end
 
   private
+
   def reset_statment_log
     @statment_log = [statment_header]
   end
