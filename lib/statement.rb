@@ -15,7 +15,7 @@ class Statement
     type = transaction.type
     amount = to_float(transaction.amount)
     balance = to_float(transaction.balance)
-    @statment_log << " #{date} || #{type}  ||  #{amount}  || #{balance} "
+    @statment_log << " #{date} || #{print_credit(type, amount)}  || #{print_debit(type, amount)} || #{balance} "
   end
 
   private
@@ -25,10 +25,18 @@ class Statement
   end
 
   def statment_header
-    "   Date   ||  Type  ||  Amount  || Balance "
+    "   date   ||  credit  || debit  || Amount  || Balance "
   end
 
   def to_float(number)
     sprintf('%.2f', number)
+  end
+
+  def print_credit(type, amount)
+    type == 'credit' ? "#{amount}" : ''
+  end
+
+  def print_debit(type, amount)
+    type == 'debit' ? "#{amount}" : ''
   end
 end

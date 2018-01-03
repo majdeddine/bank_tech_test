@@ -23,7 +23,6 @@
         null,
         null,
         1,
-        null,
         1,
         1,
         null,
@@ -97,7 +96,6 @@
         null
       ],
       "/Users/majdeddine/Desktop/tech-test/bank_tech_test/spec/customer_spec.rb": [
-        null,
         1,
         null,
         1,
@@ -126,7 +124,6 @@
       ],
       "/Users/majdeddine/Desktop/tech-test/bank_tech_test/spec/transaction_spec.rb": [
         1,
-        null,
         4,
         null,
         1,
@@ -144,12 +141,9 @@
         1,
         1,
         null,
-        null,
-        null,
-        null,
         null
       ]
     },
-    "timestamp": 1514972537
+    "timestamp": 1514977491
   }
 }

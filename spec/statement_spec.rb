@@ -10,7 +10,7 @@ describe Statement do
     it 'print a list of transaction in a special format' do
       transactions = [transaction]
       statement.print(transactions)
-      expect(statement.statment_log.last).to eq(' 01/01/2010 || debit  ||  100.00  || 100.00 ')
+      expect(statement.statment_log.last).to eq(' 01/01/2010 ||   || 100.00 || 100.00 ')
     end
   end
 end
