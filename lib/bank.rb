@@ -34,7 +34,7 @@ class Bank
     end
   end
 
-  def account_statment(customer, password)
+  def account_statement(customer, password)
     account = find_account(customer, password)
     if account
       @statement.print(account.transactions)

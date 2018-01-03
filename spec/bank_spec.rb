@@ -47,18 +47,18 @@ describe Bank do
     end
   end
 
-  describe 'account_statment' do
+  describe 'account_statement' do
     it 'receive customer and password as argument' do
-      expect(bank).to respond_to(:account_statment).with(2).argument
+      expect(bank).to respond_to(:account_statement).with(2).argument
     end
 
     it 'throw error if the customer provide a wrong password' do
-      expect { bank.account_statment(customer, '0001') }.to raise_error('Wrong name or password')
+      expect { bank.account_statement(customer, '0001') }.to raise_error('Wrong name or password')
     end
 
     it 'call print once' do
       statement.should_receive(:print).once
-      bank.account_statment(customer, '0000')
+      bank.account_statement(customer, '0000')
     end
   end
 
