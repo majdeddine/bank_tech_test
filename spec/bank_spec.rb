@@ -1,6 +1,13 @@
 describe Bank do
   let(:customer) { double('customer', name: 'jj') }
-  let(:bank) { Bank.new }
+  # let(:account) { double('account', :new) }
+  let(:statement) { double('statement') }
+  let(:bank) { Bank.new(Account, statement) }
+
+  before(:each) do
+    bank.new_account(customer, '0000')
+    allow(statement).to receive(:print)
+  end
 
   it 'have a list of accounts' do
     expect(bank.accounts).to be_an_instance_of(Array)
@@ -12,7 +19,6 @@ describe Bank do
     end
 
     it 'create a new account and add it to the accounts list' do
-      bank.new_account(customer, '0000')
       expect(bank.accounts.last.owner).to eq(customer)
     end
   end
@@ -23,7 +29,7 @@ describe Bank do
     end
 
     it 'throw error if the customer provide a wrong password' do
-      expect { bank.deposit(10, 'jj', '0001') }.to raise_error('Wrong name or password')
+      expect { bank.deposit(10, customer, '0001') }.to raise_error('Wrong name or password')
     end
   end
 
@@ -33,7 +39,7 @@ describe Bank do
     end
 
     it 'throw error if the customer provide a wrong password' do
-      expect { bank.withdraw(10, 'jj', '0001') }.to raise_error('Wrong name or password')
+      expect { bank.withdraw(10, customer, '0001') }.to raise_error('Wrong name or password')
     end
   end
   describe 'account_statment' do
@@ -42,7 +48,13 @@ describe Bank do
     end
 
     it 'throw error if the customer provide a wrong password' do
-      expect { bank.account_statment('jj', '0001') }.to raise_error('Wrong name or password')
+      expect { bank.account_statment(customer, '0001') }.to raise_error('Wrong name or password')
+    end
+
+    it 'call print once' do
+      statement.should_receive(:print).once
+      bank.account_statment(customer, '0000')
     end
   end
+
 end
