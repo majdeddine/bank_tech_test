@@ -10,13 +10,6 @@ class Statement
     puts @statment_log.join("\n")
   end
 
-  def print_transaction(transaction)
-    date = transaction.date
-    type = transaction.type
-    amount = to_float(transaction.amount)
-    balance = to_float(transaction.balance)
-    @statment_log << " #{date} || #{print_credit(type, amount)}  || #{print_debit(type, amount)} || #{balance} "
-  end
 
   private
 
@@ -38,5 +31,13 @@ class Statement
 
   def print_debit(type, amount)
     type == 'debit' ? "#{amount}" : ''
+  end
+  
+  def print_transaction(transaction)
+    date = transaction.date
+    type = transaction.type
+    amount = to_float(transaction.amount)
+    balance = to_float(transaction.balance)
+    @statment_log << " #{date} || #{print_credit(type, amount)}  || #{print_debit(type, amount)} || #{balance} "
   end
 end

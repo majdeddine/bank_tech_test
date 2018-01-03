@@ -26,6 +26,8 @@ date   ||  credit  || debit  || Amount  || Balance
 01/03/18 || 500.00  ||  || 500.00
 01/03/18 ||   || 1000.00 || 1000.00
 ```
+## UML diagram
+![UML](images/uml.png)
 
 ## Features:
 ```
